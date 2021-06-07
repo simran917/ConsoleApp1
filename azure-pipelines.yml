@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+stages:
+  - stage: Welcome
+    jobs:
+    - job: PrintMessage
+      pool:
+       name: Default
+       demands: mycap
+
+       steps:
+         - script: echo 'Hello User'
+    - job: AssignTask
+      pool:
+       name: Default
+       demands: mycap
+      steps:
+        - script: echo 'Tasks building'
+
+  - stage: StartTask
+    jobs:
+    - job: Task1
+      steps:
+        - script: echo 'Task1 Started'
