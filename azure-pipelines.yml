@@ -27,5 +27,9 @@ stages:
   - stage: StartTask
     jobs:
     - job: Task1
+      pool:
+       name: Default
+       demands: 
+       - agent.name -equals DESKTOP-2EKSH59
       steps:
         - script: echo 'Task1 Started'
