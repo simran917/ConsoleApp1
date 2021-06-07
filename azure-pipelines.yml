@@ -19,7 +19,8 @@ stages:
     - job: AssignTask
       pool:
        name: Default
-       demands: mycap
+       demands: 
+       - agent.name -equals DESKTOP-2EKSH59
       steps:
         - script: echo 'Tasks building'
 
